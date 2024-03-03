@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MontantPayer(){
-var prixInput by remember { mutableStateOf("") }
+    var prixInput by remember { mutableStateOf("") }
     var quantiteInput by remember {mutableStateOf("")}
     var taxe by remember { mutableStateOf(false) }
     val prix = prixInput.toDoubleOrNull() ?: 0.0
@@ -103,7 +103,7 @@ val montant = calculateMontant(prix,quantite,taxe)
                 .padding(bottom = 32.dp)
                 .fillMaxWidth()
         )
-        RoundTheTipRow(
+        AddTaxe(
             roundUp = taxe,
             onRoundUpChanged = { taxe = it },
             modifier = Modifier.padding(bottom = 10.dp)
@@ -136,7 +136,7 @@ fun EditNumberField(
 }
 
 @Composable
-fun RoundTheTipRow(modifier: Modifier = Modifier,
+fun AddTaxe(modifier: Modifier = Modifier,
                    roundUp: Boolean,
                    onRoundUpChanged: (Boolean) -> Unit,
 ) {
@@ -160,7 +160,7 @@ fun RoundTheTipRow(modifier: Modifier = Modifier,
 private fun calculateMontant(prix:Double,quantite:Int,taxe:Boolean): String {
     var montant = prix * quantite
     if (taxe) {
-        montant -= montant * 0.2
+        montant += montant * 0.2
     }
     return NumberFormat.getCurrencyInstance().format(montant)
 }
