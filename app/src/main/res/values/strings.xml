@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MontantPayer</string>
+    <string name="Montant_Payer">Montant_Payer</string>
+    <string name="prix_unitaire">Prix Unitaire</string>
+    <string name="quantite_produit">Quantité des produit</string>
+    <string name="TVA">TVA</string>
+    <string name="montant_payer">montant à payer</string>
+    <string name="Montant_Paye">Montant à Payer:%s</string>
+</resources>
